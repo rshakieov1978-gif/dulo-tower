@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulo Tower</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --secondary: #E67E22;
+            --bg-color: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(44, 62, 80, 0.9), transparent);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 2rem;
+            left: 3rem;
+            z-index: 2;
+            color: var(--white);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .content-wrapper {
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+        }
+
+        .main-text {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .main-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .main-text p:first-of-type {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .audio-card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .audio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .audio-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        audio {
+            width: 100%;
+            outline: none;
+            border-radius: 50px;
+        }
+        
+        audio::-webkit-media-controls-panel {
+            background-color: var(--white);
+        }
+        
+        .timeline {
+            margin-top: 1rem;
+            border-left: 2px solid var(--secondary);
+            padding-left: 1.5rem;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.82rem;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 3px solid var(--white);
+        }
+        
+        .timeline-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        @media (max-width: 900px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                height: 400px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content {
+                left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Image Section -->
+        <header class="hero">
+            <img src="DULO.png" alt="Dulo Tower">
+            <div class="hero-content">
+                <div class="subtitle">Moscow, Russia</div>
+                <h1>Dulo Tower</h1>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <div class="content-wrapper">
+            <article class="main-text">
+                <p>Welcome to the Dulov Tower — the largest fortress tower in Moscow, and one of the most remarkable surviving structures of medieval Russian military architecture.</p>
+
+                <p>The tower stands at Vostochnaya Street, in the southwestern corner of the Simonov Monastery walls — the most strategically critical position in the entire defensive perimeter. From this corner the monastery's defenders could monitor and control the approaches along both banks of the Moskva River, making it the first and most powerful line of resistance against any enemy advancing from the south.</p>
+                
+                <p><strong>Origins and the Monastery</strong><br>To understand the tower you must first understand the monastery it was built to protect. The Simonov Monastery was founded in the 14th century, making it one of the oldest monastic communities in Moscow. It was established by a disciple of the great Sergius of Radonezh — the most venerated saint in Russian Orthodox history — and quickly became one of the most important religious and cultural centers in medieval Russia.</p>
+                
+                <p>The monastery's location on a high hill overlooking the Moskva River made it both spiritually and militarily significant. For centuries it served simultaneously as a house of prayer and a frontier fortress, guarding Moscow's southern approaches against Tatar raids and other threats from the steppe. The monks who lived here were keenly aware that their survival depended not only on their faith but also on the strength of their walls.</p>
+                
+                <p><strong>Construction of the Tower</strong><br>The Dulov Tower was built between 1630 and 1640 — a period of intense reconstruction and fortification across Russia following the devastating Time of Troubles, when foreign armies had penetrated deep into Russian territory and even briefly occupied Moscow itself. The trauma of that period drove Russian authorities to massively strengthen the defenses of monasteries and cities throughout the country.</p>
+                
+                <p>Some architectural historians have attributed the tower's design to Fyodor Kon — one of the greatest Russian architects of the late 16th and early 17th centuries, famous for building the white stone walls of the Moscow Kremlin's outer defenses and the fortress city of Smolensk. While this attribution remains debated among scholars, the tower's extraordinary quality of design and construction is consistent with the work of a master builder of the highest rank.</p>
+                
+                <p><strong>Architecture</strong><br>The tower's architecture is a masterpiece of Russian medieval military engineering. Its lower section forms a remarkable 23-sided polygon — an unusual geometric choice that gave the structure exceptional resistance to cannon fire, as angled surfaces deflect projectiles far more effectively than flat walls. Above the polygonal base rises a tall brick tent roof covered in traditional ceramic tiles, giving the tower its distinctive and elegant silhouette against the Moscow skyline.</p>
+                
+                <p>Look closely at the exterior and you will notice the extraordinary richness of decorative detail. The edges of each facet are articulated with vertical pilasters. The arrow-slit windows are framed with ornate stone surrounds. The upper section features machicolations — projecting stone galleries with openings in the floor through which defenders could drop stones, boiling water or burning materials on attackers below.</p>
+                
+                <p>This combination of military function and architectural beauty is characteristic of the best Russian fortress architecture of the 17th century. The builders understood that a great tower was not merely a weapon — it was also a statement of power, faith and civilization.</p>
+
+                <p>The tower stands six stories tall and its walls were built to withstand sustained artillery bombardment. Each brick was handmade and laid with extraordinary precision by craftsmen whose names history has not recorded but whose skill is visible in every detail of the structure.</p>
+                
+                <p><strong>Name and Legend</strong><br>The name Dulo almost certainly derives from the Russian word "dulo" — meaning the barrel or muzzle of a cannon or gun. The tower's elongated polygonal form, tapering slightly toward the top, does indeed suggest the barrel of an enormous weapon pointed skyward. It is a fitting name for a structure whose entire purpose was the projection of defensive force.</p>
+                
+                <p><strong>Soviet Era and Survival</strong><br>The fate of the Simonov Monastery in the Soviet period was devastating. In the 1930s, as part of a broader campaign against religious institutions and in the name of industrial development, the Soviet authorities demolished the majority of the monastery's historic buildings. The magnificent cathedral, the ancient bell tower, and most of the monastery walls were torn down to make way for a cultural palace for workers at the nearby ZIL factory.</p>
+                
+                <p>The destruction was a catastrophic loss for Moscow's architectural heritage. Among the buildings demolished was one that contained the tomb of the heroes of the Battle of Kulikovo — the famous 14th century victory over the Mongol Golden Horde that is considered a turning point in Russian history.</p>
+                
+                <p>The Dulo Tower survived this destruction, along with two other towers and a small section of the monastery wall. Their survival was almost accidental — the demolition crews simply did not get to them before the project was scaled back. Today they stand as isolated fragments of what was once one of the grandest monastic fortresses in Russia.</p>
+                
+                <p><strong>Today</strong><br>Today the Dulo Tower is officially recognized as a protected cultural heritage site of Russia. Its massive brick walls, ornate architectural details and commanding presence make it one of the most visually striking landmarks in the entire Danilovsky District.</p>
+                
+                <p>As you stand before this tower, consider what it has witnessed across nearly four centuries: Tatar raids and Polish invasions, the reforms of Peter the Great, Napoleon's march on Moscow, the Bolshevik Revolution, the Soviet industrialization campaign that destroyed most of what surrounded it, and now the rapid transformation of this district into one of Moscow's most dynamic urban neighborhoods.</p>
+                
+                <p>The Dulov Tower has outlasted empires, ideologies and generations of Muscovites. Its 23-sided walls of handmade brick carry within them the entire compressed history of this city and this nation.</p>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="audio-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        Audio Guide
+                    </h3>
+                    <audio controls>
+                        <source src="Dulo tower.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">Listen to the guided narrative of the history of Dulo Tower.</p>
+                </div>
+                
+                <div class="audio-card">
+                    <h3>Historical Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>14th Century</strong>
+                            Simonov Monastery Founded
+                        </div>
+                        <div class="timeline-item">
+                            <strong>1630-1640</strong>
+                            Construction of the Dulo Tower
+                        </div>
+                        <div class="timeline-item">
+                            <strong>1930s</strong>
+                            Monastery largely destroyed during Soviet era
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Today</strong>
+                            Protected cultural heritage site
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+</body>
+</html>
